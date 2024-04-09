@@ -3,6 +3,12 @@ function sortear(){// Criando a função sortear
     let de = parseInt(document.getElementById('de').value);//e também o parseInt para converter a string para um número inteiro.
     let ate = parseInt(document.getElementById('ate').value);
 
+    if (de >= ate) {// função para verificar se o valor de "de" é maior que o de "até"
+        alert('Campo "Do número" deve ser inferior ao campo "Até o número". Verifique!');
+        limparCampos();
+        return;
+      }
+
     let sorteados = []; // criando a lista
     let numero;// criando a variavel numero para receber o número aleatório
 
@@ -35,9 +41,13 @@ function alterarStatusBotao() {// Função para alterar o numero do botão.
 }
 
 function reiniciar(){//função de limpar os campos
+    limparCampos();
+    alterarStatusBotao();// alterar o status do botão para começar um novo jogo.
+}
+
+function limparCampos(){
     document.getElementById('quantidade').value = '';// limpando os campos
     document.getElementById('de').value = '';
     document.getElementById('ate').value = '';
     document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>';// reiniciar o texto inicial do campo de texto
-    alterarStatusBotao();// alterar o status do botão para começar um novo jogo.
 }
