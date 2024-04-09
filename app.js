@@ -7,7 +7,12 @@ function sortear(){// Criando a função sortear
         alert('Campo "Do número" deve ser inferior ao campo "Até o número". Verifique!');
         limparCampos();
         return;
-      }
+    }
+    if (quantidade > (ate - de + 1)) {// verifica se o número do intervalo se a quantidade é menor que até - de +1 para apresentar o erro de loop infinito
+        alert('Campo "Quantidade" deve ser menor ou igual ao intervalo informado no campo "Do número" até o campo "Até o número". Verifique!');
+        limparCampos();
+        return;
+    }
 
     let sorteados = []; // criando a lista
     let numero;// criando a variavel numero para receber o número aleatório
